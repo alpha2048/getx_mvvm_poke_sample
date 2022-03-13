@@ -7,6 +7,9 @@ part 'pokemon_response.g.dart';
 class PokemonResponse with _$PokemonResponse {
   const factory PokemonResponse({
     required int id,
+    required String name,
+    required int height,
+    required int weight,
     required PokemonSpriteResponse sprites,
   }) = _PokemonResponse;
 

@@ -23,9 +23,16 @@ class _$PokemonResponseTearOff {
   const _$PokemonResponseTearOff();
 
   _PokemonResponse call(
-      {required int id, required PokemonSpriteResponse sprites}) {
+      {required int id,
+      required String name,
+      required int height,
+      required int weight,
+      required PokemonSpriteResponse sprites}) {
     return _PokemonResponse(
       id: id,
+      name: name,
+      height: height,
+      weight: weight,
       sprites: sprites,
     );
   }
@@ -41,6 +48,9 @@ const $PokemonResponse = _$PokemonResponseTearOff();
 /// @nodoc
 mixin _$PokemonResponse {
   int get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  int get height => throw _privateConstructorUsedError;
+  int get weight => throw _privateConstructorUsedError;
   PokemonSpriteResponse get sprites => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -54,7 +64,12 @@ abstract class $PokemonResponseCopyWith<$Res> {
   factory $PokemonResponseCopyWith(
           PokemonResponse value, $Res Function(PokemonResponse) then) =
       _$PokemonResponseCopyWithImpl<$Res>;
-  $Res call({int id, PokemonSpriteResponse sprites});
+  $Res call(
+      {int id,
+      String name,
+      int height,
+      int weight,
+      PokemonSpriteResponse sprites});
 
   $PokemonSpriteResponseCopyWith<$Res> get sprites;
 }
@@ -71,12 +86,27 @@ class _$PokemonResponseCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
+    Object? name = freezed,
+    Object? height = freezed,
+    Object? weight = freezed,
     Object? sprites = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      height: height == freezed
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as int,
+      weight: weight == freezed
+          ? _value.weight
+          : weight // ignore: cast_nullable_to_non_nullable
               as int,
       sprites: sprites == freezed
           ? _value.sprites
@@ -100,7 +130,12 @@ abstract class _$PokemonResponseCopyWith<$Res>
           _PokemonResponse value, $Res Function(_PokemonResponse) then) =
       __$PokemonResponseCopyWithImpl<$Res>;
   @override
-  $Res call({int id, PokemonSpriteResponse sprites});
+  $Res call(
+      {int id,
+      String name,
+      int height,
+      int weight,
+      PokemonSpriteResponse sprites});
 
   @override
   $PokemonSpriteResponseCopyWith<$Res> get sprites;
@@ -120,12 +155,27 @@ class __$PokemonResponseCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
+    Object? name = freezed,
+    Object? height = freezed,
+    Object? weight = freezed,
     Object? sprites = freezed,
   }) {
     return _then(_PokemonResponse(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      height: height == freezed
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as int,
+      weight: weight == freezed
+          ? _value.weight
+          : weight // ignore: cast_nullable_to_non_nullable
               as int,
       sprites: sprites == freezed
           ? _value.sprites
@@ -138,7 +188,12 @@ class __$PokemonResponseCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_PokemonResponse implements _PokemonResponse {
-  const _$_PokemonResponse({required this.id, required this.sprites});
+  const _$_PokemonResponse(
+      {required this.id,
+      required this.name,
+      required this.height,
+      required this.weight,
+      required this.sprites});
 
   factory _$_PokemonResponse.fromJson(Map<String, dynamic> json) =>
       _$$_PokemonResponseFromJson(json);
@@ -146,11 +201,17 @@ class _$_PokemonResponse implements _PokemonResponse {
   @override
   final int id;
   @override
+  final String name;
+  @override
+  final int height;
+  @override
+  final int weight;
+  @override
   final PokemonSpriteResponse sprites;
 
   @override
   String toString() {
-    return 'PokemonResponse(id: $id, sprites: $sprites)';
+    return 'PokemonResponse(id: $id, name: $name, height: $height, weight: $weight, sprites: $sprites)';
   }
 
   @override
@@ -159,6 +220,9 @@ class _$_PokemonResponse implements _PokemonResponse {
         (other.runtimeType == runtimeType &&
             other is _PokemonResponse &&
             const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.height, height) &&
+            const DeepCollectionEquality().equals(other.weight, weight) &&
             const DeepCollectionEquality().equals(other.sprites, sprites));
   }
 
@@ -166,6 +230,9 @@ class _$_PokemonResponse implements _PokemonResponse {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(height),
+      const DeepCollectionEquality().hash(weight),
       const DeepCollectionEquality().hash(sprites));
 
   @JsonKey(ignore: true)
@@ -182,6 +249,9 @@ class _$_PokemonResponse implements _PokemonResponse {
 abstract class _PokemonResponse implements PokemonResponse {
   const factory _PokemonResponse(
       {required int id,
+      required String name,
+      required int height,
+      required int weight,
       required PokemonSpriteResponse sprites}) = _$_PokemonResponse;
 
   factory _PokemonResponse.fromJson(Map<String, dynamic> json) =
@@ -189,6 +259,12 @@ abstract class _PokemonResponse implements PokemonResponse {
 
   @override
   int get id;
+  @override
+  String get name;
+  @override
+  int get height;
+  @override
+  int get weight;
   @override
   PokemonSpriteResponse get sprites;
   @override

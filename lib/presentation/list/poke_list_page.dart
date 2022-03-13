@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_mvvm_poke_sample/presentation/detail/poke_detail_page.dart';
 import 'package:getx_mvvm_poke_sample/presentation/list/poke_list_view_model.dart';
 
 import 'package:getx_mvvm_poke_sample/data/model/pokemon_response.dart';
@@ -28,8 +29,9 @@ class PokeListPage extends StatelessWidget {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     const Text(
-                      "初代ポケモン図鑑",
-                      style: TextStyle(fontSize: 32),
+                      "Pokedex Red/Blue/Green",
+                      style:
+                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(12),
@@ -40,7 +42,11 @@ class PokeListPage extends StatelessWidget {
                         crossAxisSpacing: 12.0,
                         mainAxisSpacing: 12.0,
                         children: state.response
-                            .map((pokemon) => PokeListTile(pokemon: pokemon))
+                            .map((pokemon) => PokeListTile(
+                                  pokemon: pokemon,
+                                  onClick: () =>
+                                      Get.to(PokeDetailPage(pokemon: pokemon)),
+                                ))
                             .toList(),
                       ),
                     ),
@@ -52,7 +58,7 @@ class PokeListPage extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.all(24),
                   child: Text(
-                    "データ取得に失敗しました",
+                    "Failure to get deta",
                     style: TextStyle(fontSize: 19),
                     textAlign: TextAlign.center,
                   ),
@@ -64,7 +70,7 @@ class PokeListPage extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.all(24),
               child: Text(
-                "データ取得に失敗しました",
+                "Failure to get deta",
                 style: TextStyle(fontSize: 19),
                 textAlign: TextAlign.center,
               ),
@@ -80,25 +86,31 @@ class PokeListTile extends StatelessWidget {
   const PokeListTile({
     Key? key,
     required this.pokemon,
+    required this.onClick,
   }) : super(key: key);
 
   final PokemonResponse pokemon;
+  final VoidCallback onClick;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: Colors.grey,
-          width: 2,
+
+    return InkWell(
+      onTap: onClick,
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.grey,
+            width: 2,
+          ),
+          borderRadius: BorderRadius.circular(16),
         ),
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: CachedNetworkImage(
-        imageUrl: pokemon.sprites.frontDefault,
-        placeholder: (context, url) => Transform.scale(
-          scale: 0.3,
-          child: const CircularProgressIndicator(),
+        child: CachedNetworkImage(
+          imageUrl: pokemon.sprites.frontDefault,
+          placeholder: (context, url) => Transform.scale(
+            scale: 0.3,
+            child: const CircularProgressIndicator(),
+          ),
         ),
       ),
     );
