@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'main_view_model_data.dart';
+part of 'poke_list_view_model_data.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,8 +15,8 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$MainViewModelDataTearOff {
-  const _$MainViewModelDataTearOff();
+class _$PokeListViewModelDataTearOff {
+  const _$PokeListViewModelDataTearOff();
 
   Loading loading() {
     return const Loading();
@@ -34,10 +34,10 @@ class _$MainViewModelDataTearOff {
 }
 
 /// @nodoc
-const $MainViewModelData = _$MainViewModelDataTearOff();
+const $PokeListViewModelData = _$PokeListViewModelDataTearOff();
 
 /// @nodoc
-mixin _$MainViewModelData {
+mixin _$PokeListViewModelData {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
@@ -85,20 +85,20 @@ mixin _$MainViewModelData {
 }
 
 /// @nodoc
-abstract class $MainViewModelDataCopyWith<$Res> {
-  factory $MainViewModelDataCopyWith(
-          MainViewModelData value, $Res Function(MainViewModelData) then) =
-      _$MainViewModelDataCopyWithImpl<$Res>;
+abstract class $PokeListViewModelDataCopyWith<$Res> {
+  factory $PokeListViewModelDataCopyWith(PokeListViewModelData value,
+          $Res Function(PokeListViewModelData) then) =
+      _$PokeListViewModelDataCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$MainViewModelDataCopyWithImpl<$Res>
-    implements $MainViewModelDataCopyWith<$Res> {
-  _$MainViewModelDataCopyWithImpl(this._value, this._then);
+class _$PokeListViewModelDataCopyWithImpl<$Res>
+    implements $PokeListViewModelDataCopyWith<$Res> {
+  _$PokeListViewModelDataCopyWithImpl(this._value, this._then);
 
-  final MainViewModelData _value;
+  final PokeListViewModelData _value;
   // ignore: unused_field
-  final $Res Function(MainViewModelData) _then;
+  final $Res Function(PokeListViewModelData) _then;
 }
 
 /// @nodoc
@@ -108,7 +108,8 @@ abstract class $LoadingCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$LoadingCopyWithImpl<$Res> extends _$MainViewModelDataCopyWithImpl<$Res>
+class _$LoadingCopyWithImpl<$Res>
+    extends _$PokeListViewModelDataCopyWithImpl<$Res>
     implements $LoadingCopyWith<$Res> {
   _$LoadingCopyWithImpl(Loading _value, $Res Function(Loading) _then)
       : super(_value, (v) => _then(v as Loading));
@@ -124,7 +125,7 @@ class _$Loading implements Loading {
 
   @override
   String toString() {
-    return 'MainViewModelData.loading()';
+    return 'PokeListViewModelData.loading()';
   }
 
   @override
@@ -205,7 +206,7 @@ class _$Loading implements Loading {
   }
 }
 
-abstract class Loading implements MainViewModelData {
+abstract class Loading implements PokeListViewModelData {
   const factory Loading() = _$Loading;
 }
 
@@ -217,7 +218,8 @@ abstract class $LoadedCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$LoadedCopyWithImpl<$Res> extends _$MainViewModelDataCopyWithImpl<$Res>
+class _$LoadedCopyWithImpl<$Res>
+    extends _$PokeListViewModelDataCopyWithImpl<$Res>
     implements $LoadedCopyWith<$Res> {
   _$LoadedCopyWithImpl(Loaded _value, $Res Function(Loaded) _then)
       : super(_value, (v) => _then(v as Loaded));
@@ -249,7 +251,7 @@ class _$Loaded implements Loaded {
 
   @override
   String toString() {
-    return 'MainViewModelData.loaded(response: $response)';
+    return 'PokeListViewModelData.loaded(response: $response)';
   }
 
   @override
@@ -338,7 +340,7 @@ class _$Loaded implements Loaded {
   }
 }
 
-abstract class Loaded implements MainViewModelData {
+abstract class Loaded implements PokeListViewModelData {
   const factory Loaded({List<PokemonResponse> response}) = _$Loaded;
 
   List<PokemonResponse> get response;
@@ -353,7 +355,8 @@ abstract class $ErrorCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ErrorCopyWithImpl<$Res> extends _$MainViewModelDataCopyWithImpl<$Res>
+class _$ErrorCopyWithImpl<$Res>
+    extends _$PokeListViewModelDataCopyWithImpl<$Res>
     implements $ErrorCopyWith<$Res> {
   _$ErrorCopyWithImpl(Error _value, $Res Function(Error) _then)
       : super(_value, (v) => _then(v as Error));
@@ -369,7 +372,7 @@ class _$Error implements Error {
 
   @override
   String toString() {
-    return 'MainViewModelData.error()';
+    return 'PokeListViewModelData.error()';
   }
 
   @override
@@ -450,6 +453,6 @@ class _$Error implements Error {
   }
 }
 
-abstract class Error implements MainViewModelData {
+abstract class Error implements PokeListViewModelData {
   const factory Error() = _$Error;
 }

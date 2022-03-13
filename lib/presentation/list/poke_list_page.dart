@@ -1,15 +1,17 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_mvvm_poke_sample/presentation/main_view_model.dart';
+import 'package:getx_mvvm_poke_sample/presentation/list/poke_list_view_model.dart';
 
-class MainPage extends StatelessWidget {
-  const MainPage({Key? key}) : super(key: key);
+import 'package:getx_mvvm_poke_sample/data/model/pokemon_response.dart';
+
+class PokeListPage extends StatelessWidget {
+  const PokeListPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
 
-    final MainViewModel viewModel = Get.put(MainViewModel());
+    final PokeListViewModel viewModel = Get.put(PokeListViewModel());
 
     return Scaffold(
       appBar: AppBar(),
@@ -29,20 +31,19 @@ class MainPage extends StatelessWidget {
                       "初代ポケモン図鑑",
                       style: TextStyle(fontSize: 32),
                     ),
-                    GridView.count(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      crossAxisCount: 3,
-                      children: state.response
-                          .map((pokemon) => CachedNetworkImage(
-                                imageUrl: pokemon.sprites.frontDefault,
-                                placeholder: (context, url) => Transform.scale(
-                                  scale: 0.3,
-                                  child: const CircularProgressIndicator(),
-                                ),
-                              ))
-                          .toList(),
-                    )
+                    Padding(
+                      padding: const EdgeInsets.all(12),
+                      child: GridView.count(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        crossAxisCount: 3,
+                        crossAxisSpacing: 12.0,
+                        mainAxisSpacing: 12.0,
+                        children: state.response
+                            .map((pokemon) => PokeListTile(pokemon: pokemon))
+                            .toList(),
+                      ),
+                    ),
                   ],
                 ),
               );
@@ -71,6 +72,35 @@ class MainPage extends StatelessWidget {
           ),
         );
       }),
+    );
+  }
+}
+
+class PokeListTile extends StatelessWidget {
+  const PokeListTile({
+    Key? key,
+    required this.pokemon,
+  }) : super(key: key);
+
+  final PokemonResponse pokemon;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Colors.grey,
+          width: 2,
+        ),
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: CachedNetworkImage(
+        imageUrl: pokemon.sprites.frontDefault,
+        placeholder: (context, url) => Transform.scale(
+          scale: 0.3,
+          child: const CircularProgressIndicator(),
+        ),
+      ),
     );
   }
 }
