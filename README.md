@@ -6,5 +6,5 @@
 This includes
 
 - Poke API
-- GetX
+- [GetX](https://pub.dev/packages/get)
 - freezed
